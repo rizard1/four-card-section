@@ -11,23 +11,25 @@ html {
 }
 
 body {
-    padding: 3.33rem;
+    padding-inline: 18rem;
     display: flex;
     flex-direction: column;
     background-color: hsl(0, 0%, 100%);
+    align-items: center;
 }
 
 /* HEADER */
 header {
-    width: 400px;
+    max-width: 500px;
     margin: auto;
     text-align: center;
-    margin-bottom: 10px;
+    margin-block: 7.2rem 3rem;
     padding-bottom: 30px;
+    color: hsl(212, 6%, 44%);
+    font-size: 1.2rem;
 }
 
 header h1 {
-    font-size: 1.9rem;
     font-weight: 600;
     margin-bottom: 12px;
 }
@@ -37,86 +39,100 @@ header h1 span {
 }
 
 header p {
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 /* CARD SECTION */
-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+main {
+    color: hsl(234, 12%, 34%);
+    display: grid;
+    gap: 35px;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: 1fr 1fr 1fr; */
+    grid-template-areas: 
+    ".... box2 ...."
+    "box1 box2 box4"
+    "box1 box3 box4"
+    ".... box3 ....";
 }
 
 .box {
-    width: 250px;
-    padding: 1rem;
-    padding-left: 1.5rem;
-    border-width: 3px 0px 0px 0px;
+    max-width: 340px;
+    min-width: 220px;
+    min-height: 215px;
+    padding-top: 2rem;
+    padding-inline: 2rem 1.5rem;
+    border-width: 4px 0px 0px 0px;
     border-style: solid;
     border-radius: 5px;
-    box-shadow: 2px 4px 7px hsl(234, 12%, 34%, 25%);
+    box-shadow: 0 6px 9px 1px hsl(212, 6%, 44%, 17%);
 }
 
 .box1 {
+    grid-area: box1;
     border-color: hsl(180, 62%, 55%);
 }
 
-.box2 .box:first-child {
+.box2 {
+    grid-area: box2;
     border-color: hsl(0, 78%, 62%);
 }
 
-.box2 .box:last-child {
-    margin-top: 20px;
+.box3 {
+    grid-area: box3;
     border-color: hsl(34, 97%, 64%);
 }
 
-.box3 {
+.box4 {
+    grid-area: box4;
     border-color: hsl(212, 86%, 64%);
 }
 
 .box h2 {
-    font-size: 1.2rem;
-    font-weight: 400;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 .box p {
-    font-size: 0.8rem;
-    font-weight: 200;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: hsl(212, 6%, 44%);
 }
 
 .box img {
-    width: 40px;
+    width: 23%;
     aspect-ratio: 1;
-    margin-left: 80%;
-    padding-top: 1.33rem;
-    padding-bottom: 1.33rem;
+    margin-left: 75%;
+    padding-block: 2rem;
 }
 
-@media screen and (width <= 600px) {
+@media screen and (width <= 900px) {
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
     header {
-        width: 250px;
+        max-width: 300px;
+        font-size: 0.8rem;
+        margin-block: 4rem 2rem;
     }
 
-    header h1 {
-        font-size: 1.3rem;
-    }
-
-    section {
-        flex-direction: column;
+    main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+         "box1"
+         "box2"
+         "box3"
+         "box4";
     }
 
     .box {
-        width: 200px;
+        max-width: 260px;
     }
 
-    .box p {
-        font-size: 0.7rem;
-        padding-right: 10px;
-    }
-
-    .box img {
-        margin-left: 75%;
+    .box2 p {
+        padding-right: 1.5rem;
     }
 }
 
